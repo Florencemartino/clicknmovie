@@ -5,8 +5,13 @@ class MoviesController < ApplicationController
   end
 
   def create
-    @movie = Movie.new(movie_params)
-    @movie.save!
+    movie = Movie.new(movie_params)
+    movie.save!
+
+    user = User.find(1)
+
+    wishlist = Wishlist.new(user_id: user.id, movie_id: movie.id)
+    wishlist.save!
 
     redirect_to root_path
   end

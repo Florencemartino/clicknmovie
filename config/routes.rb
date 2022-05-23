@@ -5,6 +5,6 @@ Rails.application.routes.draw do
    get "movies/new", to: "movies#new"
    post "movies", to: "movies#create"
 
-   get "user/:id/wishlist/show", to: "wishlists#show"
+   get "user/1/wishlist/show", to: "wishlists#show", as: :wishlist
 
 end

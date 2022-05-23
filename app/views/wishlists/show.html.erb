@@ -1,3 +1,6 @@
 <% @user.movies.each do |user_movie|%>
   <%= user_movie.title %> <br>
 <% end %>
+
+<%= link_to "Retour", root_path, :class => "btn btn-lg btn-primary" %><br>
+

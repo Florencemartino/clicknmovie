@@ -1,0 +1,21 @@
+/* ------- customize primary button color -------- */
+$mynewcolor: #DC9DE6;
+$border-radius: 20px;
+$backgroundcolor: #DCF9F1;
+
+.btn-primary {
+  @include button-variant(
+    // background
+    $mynewcolor,
+    // border
+    $backgroundcolor,
+    // text
+    white,
+    // ??
+    $mynewcolor,
+    // ??
+    $mynewcolor,
+    //
+    $mynewcolor);
+  @include border-radius($border-radius, 0);
+}

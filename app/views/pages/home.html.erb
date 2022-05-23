@@ -1,4 +1,15 @@
-<h3>Bienvenue !</h3>
+<div class="text-center">
 
-<a href="/user/:id/wishlist/show">Voir ma liste de films</a></br>
-<a href="/movies/new">Ajouter un film</a>
+  <div class="p-2 mt-2">
+    <h3>Click N Movie</h3>
+  </div>
+
+  <div class="p-2 mt-5">
+    <%= link_to "Voir ma liste de films", wishlist_path, :class => "btn  btn-lg btn-primary" %><br>
+  </div>
+
+  <div class="p-2 mt-5">
+    <%= link_to "Ajouter un film", movies_new_path, :class => "btn btn-lg btn-primary" %>
+  </div>
+</div>
+

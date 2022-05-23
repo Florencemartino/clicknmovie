@@ -1,5 +1,13 @@
-<%= form_for(@movie) do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <%= f.submit %>
-<% end %>
+<div class="row">
+  <div class="col-md-12 text-center">
+    <%= form_for(@movie) do |f| %>
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+
+      <div class="p-2 mt-2">
+        <%= f.submit "Ajouter ce titre", class: "btn btn-lg btn-primary" %>
+      </div>
+
+    <% end %>
+    </div>
+</div>

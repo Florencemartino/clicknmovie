@@ -1,11 +1,13 @@
 .diagonal-box {
-  background-image: linear-gradient(#DCF9F1, #bdeee0), url(../../images/test.jpg);
+  background-image: linear-gradient(#DCF9F1, #bdeee0);
   transform: skewY(-25deg);
   height: 30em
 }
 .content {
+  background-image: asset-url('tv.png');
+  background-repeat: no-repeat;
 	max-width: 100%;
-  margin: 0 auto;
+  margin: 20% auto;
   transform: skewY(25deg);
 }
 

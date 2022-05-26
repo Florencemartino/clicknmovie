@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="col-md-12 text-center">
+    <% if @movie_title %>
+        toto
+    <% else %>
+      <div data-controller="search">
+        <input data-search-target="title" type="text">
+          <button data-action="click->search#movie">Recherche</button>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
 
-  # def new
-  #   @movie = Movie.new
+  # def home
+  #   @user = current_user
   # end
 end

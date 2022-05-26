@@ -5,11 +5,13 @@
   </div>
 
   <div class="p-2 mt-5">
-    <%= link_to "Voir ma liste de films", wishlist_path, :class => "btn  btn-lg btn-primary" %><br>
+    <% if current_user %>
+      <%= link_to "Voir ma liste de films", wishlist_path(current_user), :class => "btn  btn-lg btn-primary" %><br>
+    <% end %>
   </div>
 
   <div class="p-2 mt-5">
-    <%= link_to "Ajouter un film", movies_new_path, :class => "btn btn-lg btn-primary" %>
+    <%= link_to "Ajouter un film", search_movie_path, :class => "btn btn-lg btn-primary" %>
   </div>
 </div>
 

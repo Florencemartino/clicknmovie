@@ -1,15 +1,11 @@
 <div class="row">
   <div class="col-md-12 text-center">
-    <% if @movie_title %>
-        toto
-    <% else %>
-      <div data-controller="search">
-        <input data-search-target="title" type="text" >
-          <button data-action="click->search#movie" class="btn btn-primary">Recherche</button>
-      </div>
-      <div class="col-md-12 text-center">
-        <ul id="results" class="list-inline"></ul>
-      </div>
-    <% end %>
+    <div data-controller="search">
+      <input data-search-target="title" type="text">
+        <button data-action="click->search#movie" class="btn btn-primary" data-search-key-param="<%=ENV['IMDB_KEY_API']%>" >Recherche</button>
+    </div>
+    <div class="col-md-12 text-center">
+      <ul id="results" class="list-inline pt-5"></ul>
+    </div>
   </div>
 </div>

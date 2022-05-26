@@ -17,12 +17,6 @@ class MoviesController < ApplicationController
   end
 
   def search_movie
-    @movie_title = params[:movie]
-   if @movie_title
-      search_params = params[:movie][:title]
-      url = "https://imdb-api.com/en/API/SearchTitle/k_rvvt7xsh/#{search_params}"
-      raise
-   end
   end
 
     private

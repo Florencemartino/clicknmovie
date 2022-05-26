@@ -3,14 +3,14 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = [ "title" ]
 
-  movie() {
+  movie(event) {
     console.log(`You search for: ${this.title}`)
 
     const results = document.querySelector("#results")
 
     results.innerHTML = ""
 
-    fetch(`https://imdb-api.com/en/API/SearchTitle/k_rvvt7xsh/${this.title}`)
+    fetch(`https://imdb-api.com/en/API/SearchTitle/${event.params.key}/${this.title}`)
       .then(response => response.json())
       .then((movieResults) => {
         movieResults.results.forEach((movieResult) => {

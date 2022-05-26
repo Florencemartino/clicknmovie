@@ -4,8 +4,11 @@
         toto
     <% else %>
       <div data-controller="search">
-        <input data-search-target="title" type="text">
-          <button data-action="click->search#movie">Recherche</button>
+        <input data-search-target="title" type="text" >
+          <button data-action="click->search#movie" class="btn btn-primary">Recherche</button>
+      </div>
+      <div class="col-md-12 text-center">
+        <ul id="results" class="list-inline"></ul>
       </div>
     <% end %>
   </div>

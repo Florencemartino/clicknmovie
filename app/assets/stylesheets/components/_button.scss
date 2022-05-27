@@ -1,18 +1,18 @@
 /* ------- customize primary button color -------- */
-$mynewcolor: #DC9DE6;
+$mynewcolor: #644195;
 $border-radius: 20px;
-$backgroundcolor: #DCF9F1;
+$backgroundcolor: white;
 
 .btn-primary {
   @include button-variant(
     // background
     $mynewcolor,
     // border
-    $backgroundcolor,
+    $mynewcolor,
     // text
-    white,
+    $backgroundcolor,
     // backgroung colo when clicked
-    white,
+    $backgroundcolor,
     // ??
     $mynewcolor,
     //

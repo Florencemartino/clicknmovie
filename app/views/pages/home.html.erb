@@ -1,17 +1,22 @@
 <div class="text-center">
 
   <div class="p-2 mt-2">
-    <h3>Click N Movie</h3>
+    <h1>Click N Movie</h3>
   </div>
 
-  <div class="p-2 mt-5">
-    <% if current_user %>
-      <%= link_to "Voir ma liste de films", wishlist_path(current_user), :class => "btn  btn-lg btn-primary" %><br>
-    <% end %>
-  </div>
+  <% if current_user %>
+    <div class="p-2 mt-5">
+      <%= link_to "Voir ma liste de films", wishlist_path(current_user), class: "btn  btn-lg btn-primary" %><br>
+    </div>
 
-  <div class="p-2 mt-5">
-    <%= link_to "Ajouter un film", search_movie_path, :class => "btn btn-lg btn-primary" %>
-  </div>
+    <div class="p-2 mt-5">
+      <%= link_to "Ajouter un film", search_movie_path, class: "btn btn-lg btn-primary" %>
+    </div>
+  <% else %>
+    <div class="p-2 mt-5">
+      <%= link_to "Login", new_user_session_path, class: "btn btn-lg btn-primary" %>
+    </div>
+  <% end %>
+
 </div>
 

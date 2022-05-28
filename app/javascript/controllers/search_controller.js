@@ -1,4 +1,5 @@
 import { Controller } from "@hotwired/stimulus"
+import { csrfToken } from "@rails/ujs"
 
 export default class extends Controller {
   static targets = [ "title" ]
@@ -30,20 +31,23 @@ export default class extends Controller {
       selectedMovie.addEventListener("click", (event) => {
         console.log( event.currentTarget.title)
         movieTitle = event.currentTarget.title
+        const data = { title: movieTitle }
 
         fetch('/movies', {
           method: 'POST',
           headers:
             {
               "Content-Type": "application/json",
-              "Accept": "text/html"
+              "Accept": "application/json",
+              "X-CSRF-Token": csrfToken()
             },
-          body: JSON.stringify({title: movieTitle})
+          body: JSON.stringify(data)
         })
         .then(response => response.json())
         .then((data) => {
-          console.log(data);
-        });
+          console.log(`redirecting to wishlist of user ${data}`)
+          // window.location.replace('/user/4/wishlist/show');
+        })
       });
 
     })

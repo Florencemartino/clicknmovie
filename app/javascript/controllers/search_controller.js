@@ -45,8 +45,8 @@ export default class extends Controller {
         })
         .then(response => response.json())
         .then((data) => {
-          console.log(`redirecting to wishlist of user ${data}`)
-          // window.location.replace('/user/4/wishlist/show');
+          console.log(`redirecting to wishlist of user ${data.inserted_item}`)
+          window.location.replace(`/user/${data.inserted_item}/wishlist/show`);
         })
       });
 

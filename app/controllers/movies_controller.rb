@@ -6,8 +6,16 @@ class MoviesController < ApplicationController
   end
 
   def create
-    movie = Movie.new(movie_params)
-    movie.save!
+
+  puts 'this is the params'
+  puts movie_params
+
+  movie = Movie.find_by(title: movie_params[:title])
+
+    if movie.nil?
+      movie = Movie.new(movie_params)
+      movie.save!
+    end
 
     user = User.find(current_user.id)
 
@@ -30,7 +38,7 @@ class MoviesController < ApplicationController
     private
 
     def movie_params
-      params.require(:movie).permit(:title)
+      params.require(:movie).permit(:title, :imdb_id)
     end
 
     def success_data

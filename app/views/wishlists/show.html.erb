@@ -2,13 +2,18 @@
   <div class="col-md-12 text-center">
     <% if @user.movies.empty? %>
       Aucun film dans ta liste <br>
+      <div class="p-2 mt-5">
+        <%= link_to "Ajouter un film", search_movie_path, class: "btn btn-lg btn-primary" %>
+      </div>
     <% else%>
-      <% @user.movies.each do |user_movie|%>
-        <%= user_movie.title %> <br>
-      <% end %>
+      <div data-controller="show" id="movie_show" data-show-params-value="<%=ENV['IMDB_KEY_API']%>">
+        <% @user.movies.each do |user_movie|%>
+          <div><%= user_movie.title %></div>
+        <% end %>
+      </div>
+      <%= link_to "Retour", root_path, :class => "btn btn-lg btn-primary" %><br>
     <% end %>
 
-    <%= link_to "Retour", root_path, :class => "btn btn-lg btn-primary" %><br>
-    </div>
+  </div>
 </div>
 

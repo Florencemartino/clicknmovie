@@ -14,28 +14,23 @@ export default class extends Controller {
       .then((movieResults) => {
       movieResults.results.forEach((movieResult) => {
 
-        const imdbMovieTitle = movieResult.title
         const movieTag = `
-        <li class="list-inline-item" id="imageMovie">
+        <li class="list-inline-item" id="movieList" data-movie-id="${movieResult.id}"  data-movie-title="${movieResult.title}" >
             <img src="${movieResult.image}" alt="" width="100%" height="100%">
-              <div id='movieInfo' data-imdb-id="${movieResult.id}">${imdbMovieTitle}</div>
+            <div>${movieResult.title}</div>
         </li>`
         results.insertAdjacentHTML("beforeend", movieTag)
       })
 
-      const selectedMovie = document.getElementById("imageMovie");
-      const selectedMovieImdbId = document.querySelector('#movieInfo').dataset.imdbId
 
-      console.log('Le film choisi est',selectedMovie,  selectedMovieImdbId)
+      const selectedMovie = document.getElementById("movieList");
 
       selectedMovie.addEventListener("click", (event) => {
-        console.log('event.currentTarget', event.currentTarget)
-        const a = event;
-        console.log('event.currentTarget', event.currentTarget.innerText, event.currentTarget.dataset['imdbId'])
+
         const data =
           {
-            title: event.currentTarget.title,
-            imdb_id: event.currentTarget.imdbid
+            title: event.currentTarget.dataset.movieTitle,
+            imdb_id: event.currentTarget.dataset.movieId
           }
 
         fetch('/movies', {
@@ -51,12 +46,11 @@ export default class extends Controller {
         .then(response => response.json())
         .then((data) => {
           console.log(`redirecting to wishlist of user ${data.inserted_item}`)
-          // window.location.replace(`/user/${data.inserted_item}/wishlist/show`);
+          window.location.replace(`/user/${data.inserted_item}/wishlist/show`);
         })
       });
     })
   }
-
 
   get title() {
     return this.titleTarget.value

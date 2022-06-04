@@ -13,9 +13,9 @@ export default class extends Controller {
       console.log(movieId.innerText);
     });
 
-    // movieTitles.forEach((movieTitle) => {
-    //   fetch(`https://imdb-api.com/en/API/SearchTitle/${imdbApiKey}/${moviesId}`)
-    // })
+    movieTitles.forEach((movieTitle) => {
+      fetch(`https://imdb-api.com/en/API/SearchTitle/${imdbApiKey}/${moviesId}`)
+    })
 
   }
 

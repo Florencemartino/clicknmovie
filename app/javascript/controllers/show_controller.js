@@ -1,26 +1,31 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ['foo', 'show']
-  static values = { params: String }
+  static targets = ['show']
+  static values = { url: String }
+
 
   connect() {
-    console.log('Connected')
-    const imdbApiKey = this.getImdbApiKey()
-    const moviesId = document.querySelectorAll("#movie_show");
+    const movieCards = document.querySelectorAll("#movie_show");
 
-    moviesId.forEach((movieId) => {
-      console.log(movieId.innerText);
+    movieCards.forEach((movieCard) => {
+
+      fetch(`https://imdb-api.com/en/API/SearchTitle/${this.urlValue}`)
+        .then(response => response.json())
+        .then((movie) => {
+
+          const movieTag = `
+          <li class="list-inline-item" id="movieList">
+              <img src="${movie.image}" alt="" width="100%" height="100%">
+              <div>${movie.title}</div>
+          </li>`
+
+          movieCard.insertAdjacentHTML("beforeend", movieTag)
+
+      })
     });
 
-    movieTitles.forEach((movieTitle) => {
-      fetch(`https://imdb-api.com/en/API/SearchTitle/${imdbApiKey}/${moviesId}`)
-    })
-
   }
 
-  getImdbApiKey() {
-    return this.paramsValue
-  }
 
 }

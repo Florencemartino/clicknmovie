@@ -6,9 +6,11 @@
         <%= link_to "Ajouter un film", search_movie_path, class: "btn btn-lg btn-primary" %>
       </div>
     <% else%>
-      <div data-controller="show" id="movie_show" data-show-params-value="<%=ENV['IMDB_KEY_API']%>">
+      <div>
         <% @user.movies.each do |user_movie|%>
-          <div><%= user_movie.title %></div>
+          <div data-controller="show" id="movie_show" data-show-url-value="<%=ENV['IMDB_KEY_API']%>/<%=user_movie.imdb_id%>">
+            <%= user_movie.title %>
+          </div>
         <% end %>
       </div>
       <%= link_to "Retour", root_path, :class => "btn btn-lg btn-primary" %><br>

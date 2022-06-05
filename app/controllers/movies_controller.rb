@@ -7,10 +7,7 @@ class MoviesController < ApplicationController
 
   def create
 
-  puts 'this is the params'
-  puts movie_params
-
-  movie = Movie.find_by(title: movie_params[:title])
+    movie = Movie.find_by(title: movie_params[:title])
 
     if movie.nil?
       movie = Movie.new(movie_params)
@@ -19,7 +16,11 @@ class MoviesController < ApplicationController
 
     user = User.find(current_user.id)
 
-    @wishlist = Wishlist.new(user_id: user.id, movie_id: movie.id)
+    @wishlist = Wishlist.find_by(user_id: user.id, movie_id: movie.id)
+
+    if @wishlist.nil?
+      @wishlist = Wishlist.new(user_id: user.id, movie_id: movie.id)
+    end
 
     respond_to do |format|
       if @wishlist.save!

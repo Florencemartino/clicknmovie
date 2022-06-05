@@ -1,9 +1,5 @@
 <div class="text-center">
 
-  <div class="p-2 mt-2">
-    <h1>Click N Movie</h3>
-  </div>
-
   <% if current_user %>
     <div class="p-2 mt-5">
       <%= link_to "Voir ma liste de films", wishlist_path(current_user), class: "btn  btn-lg btn-primary" %><br>
@@ -14,7 +10,7 @@
     </div>
   <% else %>
     <div class="p-2 mt-5">
-      <%= link_to "Login", new_user_session_path, class: "btn btn-lg btn-primary" %>
+      <%= link_to "Connexion", new_user_session_path, class: "btn btn-lg btn-primary" %>
     </div>
   <% end %>
 

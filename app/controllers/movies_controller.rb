@@ -33,9 +33,6 @@ class MoviesController < ApplicationController
     end
   end
 
-  def search_movie
-  end
-
   def choose_movie
     wishlist = Wishlist.where(user_id: current_user.id)
     choosed_id_movie = wishlist.sample.movie_id
@@ -45,7 +42,7 @@ class MoviesController < ApplicationController
     private
 
     def movie_params
-      params.require(:movie).permit(:title, :imdb_id)
+      params.require(:movie).permit(:title, :imdb_id, :url_image)
     end
 
     def success_data

@@ -36,6 +36,12 @@ class MoviesController < ApplicationController
   def search_movie
   end
 
+  def choose_movie
+    wishlist = Wishlist.where(user_id: current_user.id)
+    choosed_id_movie = wishlist.sample.movie_id
+    @choosed_movie = Movie.find(choosed_id_movie)
+  end
+
     private
 
     def movie_params

@@ -15,7 +15,7 @@ export default class extends Controller {
       movieResults.results.forEach((movieResult) => {
 
         const movieTag = `
-        <li class="list-inline-item" id="movieList" data-movie-id="${movieResult.id}"  data-movie-title="${movieResult.title}" >
+        <li class="list-inline-item" id="movieList" data-movie-id="${movieResult.id}" data-movie-image="${movieResult.image}" data-movie-title="${movieResult.title}" >
             <img src="${movieResult.image}" alt="" width="100%" height="100%">
             <div>${movieResult.title}</div>
         </li>`
@@ -30,7 +30,8 @@ export default class extends Controller {
         const data =
           {
             title: event.currentTarget.dataset.movieTitle,
-            imdb_id: event.currentTarget.dataset.movieId
+            imdb_id: event.currentTarget.dataset.movieId,
+            url_image: event.currentTarget.dataset.movieImage
           }
 
         fetch('/movies', {

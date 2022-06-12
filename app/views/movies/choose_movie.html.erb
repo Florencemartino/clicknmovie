@@ -2,7 +2,9 @@
   <div class="col-md-12 text-center">
     <div data-controller="search">
         <h3> <%=  @choosed_movie.title %> <h3> <br>
-        <%= image_tag @choosed_movie.url_image, size: "260x380" %>
+        <% if !@choosed_movie.url_image.nil? %>
+          <%= image_tag @choosed_movie.url_image, size: "260x380" %>
+        <% end %>
     </div>
     <div class="p-2 mt-5">
       <%= link_to "Choisir un autre film", choose_movie_path, class: "btn btn-lg btn-primary" %>

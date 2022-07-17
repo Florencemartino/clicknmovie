@@ -9,7 +9,11 @@
       <div class="p-2 mt-5">
         <% @user.movies.each do |movie|%>
             <h3> <%= movie.title %> <h3> <br>
-            <%= image_tag movie.url_image, size: "260x380" %> <br>
+            <% if movie.url_image.nil? %>
+              <%= image_tag("no-poster-available.png", size: "260x370") %>
+            <% else %>
+              <%= image_tag movie.url_image, size: "260x380" %> <br>
+            <% end %>
         <% end %>
       </div>
       <%= link_to "Retour", root_path, :class => "btn btn-lg btn-primary" %><br>

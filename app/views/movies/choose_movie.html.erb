@@ -2,7 +2,9 @@
   <div class="col-md-12 text-center">
     <div data-controller="search">
         <h3> <%=  @choosed_movie.title %> <h3> <br>
-        <% if !@choosed_movie.url_image.nil? %>
+        <% if @choosed_movie.url_image.nil? %>
+          <%= image_tag movie.url_image, size: "260x380" %>
+        <% else %>
           <%= image_tag @choosed_movie.url_image, size: "260x380" %>
         <% end %>
     </div>
